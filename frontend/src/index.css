@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  background-color: #02040a; /* Deep Black */
+  color: #e2e8f0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow: hidden; /* No Scrollbar on body */
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+
+/* --- BACKGROUNDS --- */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.1), transparent 70%),
+              radial-gradient(circle at 90% 90%, rgba(99, 102, 241, 0.05), transparent 50%);
+  z-index: 0; /* Sabse peeche */
+  pointer-events: none;
+}
+
+.tech-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* --- GLASS EFFECT --- */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* --- ANIMATION --- */
+@keyframes scan {
+  0% { top: 0%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
+  animation: scan 3s ease-in-out infinite;
+  z-index: 10;
+}
